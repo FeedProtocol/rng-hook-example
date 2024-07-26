@@ -1,0 +1,75 @@
+{
+    "extraMetas": [
+        {
+            "pubkey":"CbhwFifNJCw8kuBUza5Tn2GT3KMsM2PFTzC9SKxHTbfY",
+            "role": "writable"
+        },
+        {
+            "seeds": [
+                {
+                    "accountKey": {
+                        "index": 1
+                    }
+
+                },
+                {
+                    "accountKey": {
+                        "index": 3
+                    }
+
+                }
+            ],
+            "role": "writable"
+        },
+        {
+            "pubkey": "HovQMDrbAgAYPCmHVSrezcSmkMtXSSUsLDFANExrZh2J",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "EdVCmQ9FSPcVe5YySXDPCRmc8aDQLKJ9xvYBMZPie1Vw",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "J83w4HKfqxwcq3BEMMkPFSppX3gqekLyLJBexebFVkix",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "HovQMDrbAgAYPCmHVSrezcSmkMtXSSUsLDFANExrZh2J",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "5SR6Dx2qxBji4jz1oZdBvKz9jMpGx57BS6KBMA4GUdcv",
+            "role": "writable"
+        },
+        {
+            "seeds": [
+                {
+                    "accountKey": {
+                        "index": 1
+                    }
+                },
+                {
+                    "accountKey": {
+                        "index": 3
+                    }
+                },
+                {
+                    "accountData": {
+                        "accountIndex": 5,
+                        "dataIndex": 0,
+                        "length":8
+                    }
+                }
+            ],
+            "role": "writable"
+        },
+        {
+            "pubkey": "9uSwASSU59XvUS8d1UeU8EwrEzMGFdXZvQ4JSEAfcS7k",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "11111111111111111111111111111111",
+            "role": "readonly"
+        }
+    ]
+}
