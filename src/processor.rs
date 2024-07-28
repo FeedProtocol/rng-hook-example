@@ -73,14 +73,15 @@ pub fn process_execute(
     let temp: &AccountInfo<'_> = next_account_info(accounts_iter)?; //derived from mint(1) and authority_info(3) and hook_counter_info account data(5).(test if you can create as an account belonging to other program)
     let rng_program: &AccountInfo<'_> = next_account_info(accounts_iter)?; //13
     let system_program: &AccountInfo<'_> = next_account_info(accounts_iter)?; //14
-
+    let compute_budget_program: &AccountInfo<'_> = next_account_info(accounts_iter)?; //14
+    
     msg!("accounts iterated");
 
     
     //this mothafukas spent waay too much compute unit!!!
     //Check that the accounts are properly in "transferring" mode
-    //check_token_account_is_transferring(source_account_info)?;
-    //check_token_account_is_transferring(destination_account_info)?;
+    check_token_account_is_transferring(source_account_info)?;
+    check_token_account_is_transferring(destination_account_info)?;
 
     msg!("accounts are transferring");
     
@@ -155,6 +156,7 @@ pub fn process_execute(
                 temp,
                 rng_program,
                 system_program,
+                compute_budget_program,
                 mint_info.key,
                 authority_info.key,
                 program_id,
@@ -179,6 +181,7 @@ fn get_random_number<'info>(
     temp: &AccountInfo<'info>,
     rng_program: &AccountInfo<'info>,
     system_program: &AccountInfo<'info>,
+    compute_budget_program: &AccountInfo<'info>,
     mint: &Pubkey,
     authority: &Pubkey,
     program_id: &Pubkey,
@@ -196,6 +199,11 @@ fn get_random_number<'info>(
     
 
     let payer_meta: AccountMeta = AccountMeta {
+        pubkey: payer_address,
+        is_signer: true,
+        is_writable: true,
+    };    
+    let payer_meta2: AccountMeta = AccountMeta {
         pubkey: payer_address,
         is_signer: true,
         is_writable: true,
@@ -253,7 +261,26 @@ fn get_random_number<'info>(
         data: [0].to_vec(),
     };
 
-    msg!("instruction created");
+    let ix2: Instruction = Instruction {
+        program_id: *compute_budget_program.key,
+        accounts: [
+            payer_meta2
+        ]
+        .to_vec(),
+        data: [2, 32, 161, 7, 0].to_vec(),
+    };
+
+    msg!("instruction screated");
+
+    invoke_signed(
+        &ix2,
+        &[
+            payer_pda.clone(),
+        ],
+        &[
+            &[&mint.to_bytes(), &authority.to_bytes(), &[payer_bump]],
+        ],
+    )?;
     
 
     invoke_signed(
@@ -511,3 +538,5 @@ async function get_user_account() {
 }
 
 */
+//100000
+//  5000
