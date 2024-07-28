@@ -1,7 +1,7 @@
 {
     "extraMetas": [
         {
-            "pubkey":"CbhwFifNJCw8kuBUza5Tn2GT3KMsM2PFTzC9SKxHTbfY",
+            "pubkey":"JBjMabLuHryydjGdX5BqE6S6EznbdiRscwBEVPrc1ce1",
             "role": "writable"
         },
         {
@@ -69,6 +69,10 @@
         },
         {
             "pubkey": "11111111111111111111111111111111",
+            "role": "readonly"
+        },
+        {
+            "pubkey": "ComputeBudget111111111111111111111111111111",
             "role": "readonly"
         }
     ]
