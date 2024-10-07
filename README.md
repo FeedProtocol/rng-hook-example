@@ -29,6 +29,7 @@ The Feed Protocol Program is a random number generating on-chain program. The pr
     ```sh
     cd rng-hook-example
     cargo add
+    npm install
     ```
 5. **Build And Deploy The Program**: Ensure you have enough Sol and configured clusters
     ```sh
